@@ -1,0 +1,11 @@
+{
+  "caseId": "CASE_007",
+  "taskName": "Check Account Balance",
+  "dateTime": "2026-03-25T09:00:31",
+  "errors": [
+    {
+      "code": "ERR001",
+      "message": "Balance no encontrado para cuenta: ACC_999"
+    }
+  ]
+}

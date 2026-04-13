@@ -1,0 +1,9 @@
+items:
+- text: Añadir tareas
+  done: false
+- text: Marcar tareas como completadas
+  done: false
+- text: Eliminar tareas
+  done: false
+- text: tarea1
+  done: false

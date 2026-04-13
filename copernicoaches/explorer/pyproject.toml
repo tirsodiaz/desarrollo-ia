@@ -1,0 +1,23 @@
+[project]
+name = "miller-columns"
+version = "0.1.0"
+description = "Gestor de archivos en consola con Miller Columns"
+requires-python = ">=3.12"
+dependencies = [
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+]
+
+[project.scripts]
+miller = "miller.__main__:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

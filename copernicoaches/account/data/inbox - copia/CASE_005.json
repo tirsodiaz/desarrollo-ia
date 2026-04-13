@@ -1,0 +1,13 @@
+{
+  "caseId": "CASE_005",
+  "source": "CLI",
+  "contracts": [
+    {
+      "contractId": "ACC_003"
+    }
+  ],
+  "accountClosure": {
+    "dateToCheckBalance": "2026-03-23",
+    "entity": "0014"
+  }
+}

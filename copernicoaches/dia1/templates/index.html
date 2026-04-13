@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do mínima</title>
+    <style>
+      :root {
+        --fondo: #f8f4ea;
+        --texto: #1e293b;
+        --destacado: #0f766e;
+        --panel: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, #fff7d6 0%, var(--fondo) 55%);
+        color: var(--texto);
+      }
+
+      main {
+        width: min(92vw, 680px);
+        padding: 2rem;
+        background: var(--panel);
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      h1 {
+        margin: 0 0 0.25rem;
+        font-size: clamp(1.6rem, 3vw, 2rem);
+      }
+
+      .teaser {
+        margin: 0 0 1.25rem;
+        color: var(--destacado);
+        font-weight: 600;
+      }
+
+      ul {
+        margin: 0 0 1.5rem;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0.5rem 0;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+      }
+
+      li.completada {
+        opacity: 0.55;
+      }
+
+      li.completada span {
+        text-decoration: line-through;
+        color: #94a3b8;
+      }
+
+      .acciones {
+        margin-left: auto;
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+      }
+
+      .btn-completar {
+        padding: 0.25rem 0.75rem;
+        background: var(--destacado);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+
+      .btn-finalizada {
+        padding: 0.25rem 0.75rem;
+        background: #94a3b8;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        cursor: default;
+      }
+
+      .btn-deshacer {
+        padding: 0.25rem 0.75rem;
+        background: #f59e0b;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+
+      .form-añadir {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .form-añadir input[type="text"] {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+
+      .form-añadir button {
+        padding: 0.5rem 1.25rem;
+        background: var(--destacado);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Lista To-Do</h1>
+      <p class="teaser">Gestiona tus tareas: añade nuevas y márcalas como completadas.</p>
+
+      <section style="margin-bottom: 1.75rem">
+        <h2 style="font-size: 1rem; margin: 0 0 0.75rem; color: #64748b">Añadir nueva tarea</h2>
+        <form method="post" style="display: flex; gap: 0.5rem">
+          <input
+            type="text"
+            name="title"
+            placeholder="Escribe una tarea..."
+            required
+            style="flex: 1; padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.95rem"
+          />
+          <button
+            type="submit"
+            style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: var(--destacado); color: white; font-weight: 600; cursor: pointer"
+          >
+            Añadir
+          </button>
+        </form>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1rem; margin: 0 0 0.75rem; color: #64748b">Tareas</h2>
+        <ul>
+          {% for item in todo_items %}
+          <li>
+            <span style="{{ 'text-decoration: line-through; color: #94a3b8;' if item.done else '' }}">
+              {{ item.text }}
+            </span>
+            {% if not item.done %}
+            <form
+              method="post"
+              action="{{ url_for('complete_item', item_id=loop.index0) }}"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                style="margin-left: 0.5rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; border-radius: 999px; border: 1px solid #0f766e; background: #ecfdf5; color: #0f766e; cursor: pointer"
+              >
+                Completar
+              </button>
+            </form>
+            {% else %}
+            <span style="margin-left: 0.5rem; font-size: 0.8rem; color: #16a34a">✔ Completada</span>
+            {% endif %}
+          </li>
+          {% else %}
+          <li>No hay tareas definidas.</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

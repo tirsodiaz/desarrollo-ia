@@ -1,0 +1,13 @@
+{
+  "caseId": "CASE_004",
+  "source": "BANK",
+  "contracts": [
+    {
+      "contractId": "ACC_004"
+    }
+  ],
+  "accountClosure": {
+    "dateToCheckBalance": null,
+    "entity": "0014"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "idForm": {
+      "type": "integer",
+      "const": 2
+    },
+    "name": {
+      "type": "string",
+      "const": "contracts"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contractId": {
+            "type": "string"
+          },
+          "product": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "productCode": {
+                "type": "string"
+              },
+              "productDescription": {
+                "type": "string"
+              }
+            }
+          },
+          "closeDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "participantId": {
+                  "type": "string"
+                },
+                "policyInterventionCode": {
+                  "type": "string"
+                },
+                "participationTypeCode": {
+                  "type": "string"
+                },
+                "interventionTypeOrder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "participantId"
+              ]
+            }
+          },
+          "balances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "amount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "minimum": -10000000000000.0,
+                      "maximum": 10000000000000.0,
+                      "multipleOf": 0.01
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "creditDebitIndicator": {
+                  "type": "string"
+                },
+                "typeCode": {
+                  "type": "string"
+                },
+                "lastUpdateDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "contractId",
+          "participants"
+        ]
+      }
+    }
+  },
+  "required": [
+    "contracts"
+  ]
+}

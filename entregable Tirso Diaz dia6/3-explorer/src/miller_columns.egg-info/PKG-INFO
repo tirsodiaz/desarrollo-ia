@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: miller-columns
+Version: 0.1.0
+Summary: Gestor de archivos en consola con Miller Columns
+Requires-Python: >=3.12
+Requires-Dist: rich>=13.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"

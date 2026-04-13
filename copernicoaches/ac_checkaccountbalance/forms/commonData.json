@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "idForm": {
+      "type": "integer",
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "const": "commonData"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "applicants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "applicantId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processId": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "validityPeriod": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "startDate": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "validityPeriod": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "startDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      }
+    },
+    "externalReference": {
+      "type": "string"
+    },
+    "validityPeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "startDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "startDateTime"
+      ]
+    },
+    "channel": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "validityPeriod"
+  ]
+}

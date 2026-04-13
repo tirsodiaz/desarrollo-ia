@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "idForm": {
+      "type": "integer",
+      "const": 3
+    },
+    "name": {
+      "type": "string",
+      "const": "accountClosure"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "caseSourceId": {
+      "type": "string"
+    },
+    "requestedAccountClosureDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "accountClosureReasonId": {
+      "type": "string"
+    },
+    "confirmationLetterRequested": {
+      "type": "boolean"
+    },
+    "caseNotInScope": {
+      "type": "boolean"
+    },
+    "accountsToTransfer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "account": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "accountId": {
+                "type": "string"
+              }
+            }
+          },
+          "amountToTransfer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": -10000000000000.0,
+                "maximum": 10000000000000.0
+              },
+              "currency": {
+                "type": "string"
+              }
+            }
+          },
+          "transferRecipient": {
+            "type": "string"
+          },
+          "amountTransferred": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": "number",
+                "minimum": -10000000000000.0,
+                "maximum": 10000000000000.0
+              },
+              "currency": {
+                "type": "string"
+              }
+            }
+          },
+          "transferMethod": {
+            "type": "string"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "settlementResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": -10000000000000.0,
+              "maximum": 10000000000000.0
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "balanceResult": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "type": "number",
+              "minimum": -10000000000000.0,
+              "maximum": 10000000000000.0
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "initialBalance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": -10000000000000.0,
+          "maximum": 10000000000000.0
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "communicationsToCustomer": {
+      "type": "number"
+    },
+    "dateToCheckBalance": {
+      "type": "string",
+      "format": "date"
+    },
+    "dateToCheckTransactionPosting": {
+      "type": "string",
+      "format": "date"
+    },
+    "entity": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accountClosureReasonId",
+    "requestedAccountClosureDate"
+  ]
+}

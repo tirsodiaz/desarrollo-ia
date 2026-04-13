@@ -1,0 +1,316 @@
+big-school
+https://www.youtube.com/live/uRzoVP63RiI
+https://www.youtube.com/live/V-eiE0M-mWM
+https://www.youtube.com/live/0DhghJpWwVQ (pull request, evitando push directos)
+
+0.Crear las historias de usuario a partir de los documentos del usuario
+1.historias de usuario + dudas resueltas por la IA (hipotesis que tenemos que confirmar) -> especificaciones (x3)
+2.especificaciones + documento de arquitectura -> plan de implementación en pasos (paso1.md, paso2.md, etc) (x3)
+3.ejecutar los pasos el plan con un modelo básico (x1)
+4.hacer comprobaciones y verificar funcionamiento (manual), correcciones a la IA, iterativo
+5.generar documentacion (codigo alineado con historias de usuario, especificaciones y el plan de implementación)
+
+https://github.com/ThePhrontistery/copernicoaches  -fork desde github crea repositorio-> https://github.com/tirsodiaz/copernicoaches (tirsodiaz@gmail.com)
+GitHub Copilot for your tirso-diaz-maroto-marin_GCO2 user
+
+instalar plugin markdown preview en visual studio code
+instalar plugin draw io
+
+definicion upstream
+git remote add upstream https://github.com/ThePhrontistery/copernicoaches.git
+
+actualizar repositorio https://github.com/tirsodiaz/copernicoaches desde repositorio inicial (tambien desde source-tree, importante seleccion origen)
+git fetch upstream
+git checkout main
+git merge upstream/main
+git push origin main
+
+
+https://www.youtube.com/watch?v=0XoXNG65rfg (english)
+MCP, despues comandos
+https://www.youtube.com/watch?v=PI3mAIkdGGY (spanish)
+
+token clickup
+pk_290431495_MUERG6LF7X7QW4N4PNZ3QBZ30B6G6UP5
+
+C:\Users\tdiazmar\AppData\Roaming\Code\User\mcp.json
+
+@clickup-viewer Project 1					— generó clickup-project1-2026-03-18.md
+Crear agente ClickUp Task Creator			— clickup-creator.agent.md (crear tareas)
+@clickup-creator crear tarea				- Project 1 → `Tarea6` (prioridad high, fecha 2026-03-22) — ✅ creada
+
+/create agent-agent
+@movie-query-8.5-english
+@movie-filter
+@movie-insert CasaBlanca, 1936, Drama
+
+
+
+
+consola visual studio code (terminal powershell)
+# Con intervalo personalizado y logs detallados
+.\account\run.ps1 -Daemon -Interval 10 -VerboseMode
+# Modo original (ejecución única, sin cambios)
+.\account\run.ps1
+
+Desde CMD (símbolo del sistema), en la raíz del repo (copernicoaches), usa esto:
+Ir al proyecto:
+cd /d C:\cursos\desarrollo-ia\copernicoaches
+Ejecutar en modo demonio cada 10s (vía PowerShell):
+powershell -NoProfile -ExecutionPolicy Bypass -File ".\account\run.ps1" -Daemon -Interval 10 -VerboseMode
+Ejecución única (sin demonio):
+powershell -NoProfile -ExecutionPolicy Bypass -File ".\account\run.ps1"
+
+
+
+
+(en modo agente)
+(3X-Rol Análisis)->Con la documentacion de esta carpeta dia6 necesito generar las Historias de usuario con los requerimientos del usuario
+(3X-Rol Análisis)->Con la documentacion de esta carpeta dia6 necesito documento de especificaciones funcionales que incluyan las dudas que encuentres. 
+Crea fichero especificacion funcional v2 con las hipotesis que tenemos que validar
+empieza preguntandome las dudas y crea documento  especificacion funcional v3 con las dudas resueltas
+Dudas:D01-flechas, D16 Esc, D02 unidad C raiz, D03 directorios primero y orden alfabetico, D04 no mostrar ocultos, no existe toggle,D05 nada de enlaces simbolicos, D06 1/3 fijo del terminal, truncado nombres largos, D07 scroll automaticos mas indicadores, D08 adaptación dinámica, D10 afirmativo a las dos preguntas, D11 cabecera superior, ruta absoluta, D13 vacía, D12 5 lineas visualizacion, por extension, UTF-8, archivos binarios solo nombre,D14 barra de estado si error, texto Error y no se autocierra, D09 se cargan todos, D17 deteccion automatica, D18 se muestran tal cual, D15 compatible total
+(3X-Rol Analisis)->Actualizar la documentacion especificaciones con las dudas
+(3X-Rol Arquitecto)->Crear plan de implementacion maximo 5 pasos, crea ficheros con extensión .md por cada paso
+(1X-Rol Analista-Programador)ejecutar pasos de implementacion
+(1X-Rol Analista-Programador)correcciones bugs:
+bug:al usar las flechas vuelve a pintar todo de nuevo incluyendo la peticion anterior, se quiere que solo muestre la ultima peticion. es un requisito funcional que nos comenta el usuario
+bug:la funcion escape no finaliza el programa
+bug:la columna central debería mostrar inicialmente las unidades de disco, una vez seleccionada una unidad debería de visualizar la unidad en la columna de la izquierda
+Bug:se comprueba que la columna de la izquierda cuando tiene solo la unidad debería estar seleccionada pero no lo está
+(1X-Rol Analista-Programador)->Actualizar la documentacion especificaciones con los bugs
+
+## **Prompts utilizados (limpios):**
+1. *"(Rol Analista-3X) A partir de estos requisitos de negocio, genera una especificación funcional completa con historias de usuario, reglas de navegación, modelo de interfaz, casos límite y alcance del MVP."*
+2. *"(Rol Analista-3X) Analiza la especificación funcional e identifica todas las ambigüedades, lagunas, decisiones no tomadas y suposiciones implícitas. Para cada una, propón una hipótesis razonable y su riesgo si es incorrecta."*
+3. *"(Rol Analista-3X) Con estas respuestas a las dudas [D01–D18], genera la especificación funcional v3 definitiva que sustituya a la v2 como referencia de implementación."*
+4. *"(Rol Arquitecto-3X) Crea una guía de arquitectura de cuatro capas desacopladas (estado, navegación, filesystem, UI) y un plan de implementación incremental en 5 pasos."*
+5. *"(Rol Analista-Programador-1X) Implementa el paso N siguiendo la especificación y la guía de arquitectura. Incluye tests unitarios."* (repetido para cada step-00 a step-04)
+
+
+PROMPT1: 
+Rol: Actúa como Product owner si no hay historias de usuario. Crea historias de usuario, criterios de aceptacion.
+Rol: Actúa como un Analista Funcional Senior especializado en análisis de requerimientos, definición funcional de soluciones software y elaboración de documentación formal.
+Objetivo: Con la documentación contenida en la carpeta anexa, genera un Documento de Especificación Funcional v2 completamente estructurado, claro y profesional.
+
+Instrucciones:
+Analiza toda la documentación proporcionada en la carpeta anexa.
+A partir de ese análisis, crea un Documento de Especificación Funcional (versión 2) que contenga:
+
+Introducción y contexto del proyecto.
+Objetivo del documento.
+Alcance funcional (in-scope / out-of-scope).
+Descripción detallada de los requerimientos funcionales.
+Reglas de negocio detectadas.
+Diagramas o flujos si son necesarios.
+Supuestos e hipótesis tomadas en base a la falta de información.
+Lista de dudas pendientes que deben ser validadas con negocio o el equipo técnico.
+Riesgos o bloqueos derivados de esas dudas.
+
+
+Asegúrate de:
+Indicar claramente qué partes provienen de la documentación y cuáles son hipótesis.
+Señalar inconsistencias o contradicciones detectadas.
+Proponer preguntas concretas que deben resolverse.
+Usar un formato formal y corporativo, ordenado en secciones.
+
+
+El resultado debe ser un documento final listo para entregar, con versión:
+“Especificación Funcional (con dudas) – v2”
+e incluir un índice al inicio.
+Si algún dato no existe en la documentación, no lo inventes, marca ese ítem como:
+
+“Información pendiente”
+“Dependencia”
+“Duda”
+“Hipótesis a validar”
+
+Salida esperada: Documento completo en formato texto (Markdown) con todas las secciones detalladas arriba.
+NOTA: Adicionalmente ve rellemando el documento Informe individual de uso de IA.md con los datos que vas obteniendo y que nos piden
+
+
+PROMPT2 resolucion de Dudas del documento anterior (Especificaciones funcionales  v2):
+**ROL:** Actúa como un Analista Funcional Senior experto en análisis de requisitos, levantamiento de información, documentación funcional y resolución iterativa de requisitos.
+**OBJETIVO:** Quiero que utilices el documento que te proporcionaré para crear una “Especificación Funcional – v3.md”, pero siguiendo un proceso guiado e incremental.
+**MODO DE TRABAJO:**
+1. Analiza el documento que te entregue.
+2. A partir de ese análisis, identifica:
+   - Dudas
+   - Hipótesis a validar
+   - Información pendiente
+   - Dependencias
+   - Inconsistencias
+3. PRESÉNTAME esas dudas **una a una**, de forma secuencial.  
+   → No avances a la siguiente duda hasta que yo te responda.
+4. Con cada respuesta mía, debes:
+   - Actualizar tu comprensión del sistema
+   - Refinar o anular la duda anterior
+   - Incorporar la información al documento final
+5. Una vez que hayamos resuelto **todas las dudas**, generarás un documento final en **formato Markdown**, llamado:
+   **Especificación Funcional sin dudas – v3.md**
+6. El documento final deberá incluir:
+   - Título y versión
+   - Índice
+   - Contexto del proyecto
+   - Alcance (in/out)
+   - Requisitos funcionales detallados
+   - Reglas de negocio
+   - Flujos o diagramas si aplica (en texto si no puedes graficar)
+   - Hipótesis validadas y descartadas
+   - Puntos pendientes si los hubiera
+7. No inventes información. Si falta algo, márcalo como:
+   - “Pendiente de validar”
+   - “Hipótesis”
+   - “Dependencia”
+8. El tono debe ser profesional, preciso y estructurado.
+
+**SALIDA ESPERADA:**
+- Interacción iterativa para resolver dudas.
+- Documento final en texto Markdown denominado:
+  **Especificación Funcional sin dudas – v3.md**
+  
+  
+PROMPT3 Generar el Plan de implementacion usando Especificaciones funcionales Version final + documento de Arquitectura:
+**ROL:** Actúa como un Arquitecto de Soluciones Senior experto en diseño de sistemas, integración, arquitectura técnica y planificación de implementación.
+**OBJETIVO:** Utilizando exclusivamente la documentación que te voy a proporcionar (Especificaciones funcionales Version final + documento de Arquitectura) anexos , debes construir un **Plan de Implementación** compuesto por un máximo de **5 pasos**. Cada paso se entregará como un fichero individual en formato **Markdown (.md)**.
+**INSTRUCCIONES:**
+
+1. Analiza detalladamente toda la documentación proporcionada.
+2. A partir de ella, define un **Plan de Implementación de máximo 5 pasos**, donde cada paso:
+   - sea claro, realizable y justificado técnicamente
+   - defina objetivos, tareas clave, riesgos y dependencias
+   - tenga una salida u entregable concreto
+3. Una vez identificados los pasos, debes generar:
+   - Un fichero .md por cada paso
+   - Nombres sugeridos:  
+     - `SPEC01-xxxx.md`  
+     - `SPEC02-xxxx.md`  
+     - …  
+     - `SPEC05-xxxx.md` (solo si es necesario)
+	 Nota: En el nombre del fichero que se entienda que paso estamos realizando
+4. No inventes información técnica que no esté soportada por la documentación.  
+   - Si algo no aparece, marca explícitamente:  
+     **"Información no disponible en la documentación proporcionada"**
+5. El lenguaje debe ser profesional, técnico y de arquitectura.
+6. El contenido de cada fichero .md debe incluir como mínimo:
+   - Título del paso  
+   - Objetivo  
+   - Descripción  
+   - Tareas principales  
+   - Dependencias  
+   - Riesgos y mitigaciones  
+   - Resultado/Entregable esperado
+7. Cuando termines de analizar la documentación, deberás decir:  
+   **“Plan listo.”**
+
+**SALIDA ESPERADA:**  
+Un conjunto de hasta **5 archivos .md**, uno por cada paso del plan de implementación.
+
+PROMPT Arquitecto Generar tareas de implementacion por cada paso del plan de implementación
+Actúa como un Arquitecto de Software Senior. A partir del siguiente plan de implementación, genera todas las tareas necesarias para llevar a cabo la solución desde la perspectiva arquitectónica, asegurando coherencia técnica, cumplimiento de patrones, calidad y alineación con la visión del sistema.
+
+Instrucciones:
+- Traduce el plan de implementación en un backlog de implementación completo.
+- Identifica componentes, módulos, servicios y dependencias arquitectónicas.
+- Divide el trabajo en épicas, funcionalidades y tareas técnicas con enfoque de arquitectura.
+- Para cada tarea incluye:
+  - Descripción técnica detallada
+  - Objetivo arquitectónico
+  - Criterios de aceptación
+  - Artefactos o entregables (diagramas, ADRs, documentación, configuraciones)
+  - Dependencias externas e internas
+  - Estimación en horas
+- Asegúrate de incluir tareas obligatorias de arquitectura:
+  - Definición y/o actualización de diagramas (C4, secuencia, despliegue)
+  - ADRs (Architecture Decision Records)
+  - Validación de integración entre componentes
+  - Alineación con estándares de seguridad, rendimiento y escalabilidad
+  - Diseño de API contracts
+  - Configuración y revisión de infraestructura (CI/CD, cloud, entornos)
+  - Revisión técnica y validación de calidad
+- Detecta riesgos técnicos, restricciones y supuestos.
+- Si falta información en el plan, indica los huecos y propone recomendaciones técnicas.
+
+Plan de implementación:
+a partir de los pasos del plan de implementacion como workspace,
+genera la salida como un backlog perfectamente estructurado, apto para herramientas como Jira, Azure DevOps o similares.
+
+PROMPT4 Generador Codigo con perfil Analista Programador
+**ROL:** Actúa como un Analista Programador Senior, experto en desarrollo backend y frontend, integración de sistemas, 
+lectura de documentación técnica y traducción de diseños funcionales y planes de implementación y 
+de las tareas del plan de implementación en código limpio, modular y mantenible.
+**INSTRUCCIONES DE TRABAJO:**
+1. Recibe las tareas del plan de implementación como contexto inicial.
+2. Analiza cada paso y tradúcelo a código, siguiendo este criterio:
+   - No inventes funcionalidades no descritas.
+   - Si el plan incluye dependencias técnicas, respétalas estrictamente.
+   - Si algo no está claro, plantea una pregunta antes de codificar.
+3. Cada vez que generes código:
+   - Incluye comentarios explicativos.
+   - Respeta buenas prácticas del lenguaje utilizado.
+   - Produce código modular y legible.
+   - Aporta solo el código necesario para cumplir el objetivo del paso.
+4. Elabora los entregables en el orden indicado por el plan.
+5. Cuando completes un paso:
+   - Espera mi confirmación antes de continuar con el siguiente.
+6. Si detectas ambigüedades, incoherencias o información faltante:
+   - Indícalo claramente.
+   - Propón cómo resolverlo.
+   - No inventes la solución final sin aprobación.
+7. Si el plan menciona librerías, frameworks o estilos concretos:
+	- Úsalos estrictamente.
+	- Si el plan no especifica lenguaje, solicita el lenguaje objetivo antes de empezar.
+8. Usa la carpeta C:\AI\copernicoaches\doraExploradora para incluir el codigo
+SALIDA ESPERADA:
+Código funcional y documentado generado paso a paso según el plan.
+Interacciones iterativas hasta completar todas las tareas del plan de implementación.
+
+explorer carpetas consola visual studio code (terminal powershell)
+cd c:\cursos\desarrollo-ia\copernicoaches\explorer
+python -m miller  
+ 
+ 
+ 
+https://openspec.dev/
+1.instalar librería openspec en nodejs -> npm install -g @fission-ai/openspec@latest
+2.Ir a la carpeta del proyecto que queremos usar -> cd c:\cursos\desarrollo-ia\copernicoaches
+3.ejecutar en el terminal: openspec init --tools github-copilot (creacion .github, prompts y skills)
+Reiniciar VS Code para que los slash commands queden activos en el chat de Copilot: 
+	/opsx:propose "tu idea" — proponer un cambio
+	/opsx:spec — gestionar especificaciones
+	/opsx:change — gestionar cambios
+si no disponibles en el chat: El problema está claro: los archivos opsx-*.prompt.md están en prompts, 
+pero VS Code solo busca prompts en la raíz del workspace: prompts. 
+Opciones para solucionarlo: 
+A) Configurar chat.promptFilesLocations en VS Code settings para que incluya esa ruta adicional (sin mover los archivos).
+B) Mover/copiar los archivos opsx-*.prompt.md a prompts.
+Opcion A)
+Crear C:\cursos\desarrollo-ia\copernicoaches\.vscode\settings.json con:
+{
+  "chat.promptFilesLocations": {
+    ".github/prompts": true,
+    "explorer/.github/prompts": true
+  },
+  "chat.instructionsFilesLocations": {
+    ".github/skills": true,
+    "explorer/.github/skills": true
+  }
+}
+Opcion B) (por defecto se crean en raíz)
+{
+  "chat.promptFilesLocations": {
+    ".github/prompts": true,
+    ".github/skills": true
+  }
+}
+
+
+Pasos uso openspec
+1.- /opsx:propose "visualmente añadir imagen de carpeta para carpetas e imagen de fichero para ficheros"
+2.- Te genera los .md (proposal, design, specs, tasks) (spec delta que es archivo
+	que muestra exactamente qué cambia en la especificación del sistema cuando propones una nueva funcionalidad o modificación)
+3.- /opsx:apply (aplicar los cambios) (/opsx:apply add-folder-file-icons)
+4.- Realizamos pruebas o comprobacion manual antes de cerrar
+5.- /opsx:archive (para cerrar el cambio) (/opsx:archive add-folder-file-icons)
+
+show-full-path

@@ -1,0 +1,10 @@
+{
+  "caseId": "CASE_007",
+  "source": "CLI",
+  "contracts": [
+    {
+      "contractId": "ACC_999"
+    }
+  ],
+  "accountClosure": {}
+}

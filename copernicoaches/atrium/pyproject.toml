@@ -1,0 +1,14 @@
+[project]
+name = "atrium"
+version = "0.1.0"
+description = "A console file manager using Miller columns built with Python and Textual."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["textual"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+atrium = "atrium.__main__:main"
