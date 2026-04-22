@@ -26,9 +26,34 @@ git merge upstream/main
 git push origin main
 
 
+
+
 https://www.youtube.com/watch?v=0XoXNG65rfg (english)
 MCP, despues comandos
 https://www.youtube.com/watch?v=PI3mAIkdGGY (spanish)
+
+docconv
+Convertir DOCX → Markdown
+# Navegar al directorio del proyecto
+cd c:\cursos\desarrollo-ia\copernicoaches\docconv
+# Convertir el archivo (ajusta la ruta según donde esté el archivo)
+python -m docconv "test-case\Qué es un LLM.docx" "test-case\Qué es un LLM.md"
+
+
+instalacion jano
+cd c:\cursos\desarrollo-ia\copernicoaches\jano
+pip install python-docx markdown-it-py fastmcp
+pip install -e .
+
+Uso CLI
+# Desde el directorio src/jano
+cd c:\cursos\desarrollo-ia\copernicoaches\jano\src
+# Convertir DOCX → Markdown
+python -m jano "C:\cursos\desarrollo-ia\copernicoaches\docconv\test-case\Qué es un LLM.docx" "C:\cursos\desarrollo-ia\copernicoaches\docconv\test-case\Qué es un LLM.md"
+# Convertir Markdown → DOCX  
+python -m jano "test-case\Qué es un LLM.md" "test-case\Qué es un LLM.docx"
+Modo MCP (para agentes IA)
+python -m jano --mcp
 
 token clickup
 pk_290431495_MUERG6LF7X7QW4N4PNZ3QBZ30B6G6UP5

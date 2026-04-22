@@ -13,7 +13,7 @@
 			"args": [
 				"-y",
 				"mcp-sqlite",
-				"c:\\cursos\\desarrollo-ia\\copernicoaches\\dia3\\movies.db"
+				"c:\\cursos\\desarrollo-ia\\copernicoaches\\dia3-mcp-clickUp-SQLite-movies\\movies.db"
 			]
 		},
 		"io.github.ChromeDevTools/chrome-devtools-mcp": {
