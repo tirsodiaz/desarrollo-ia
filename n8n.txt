@@ -1,0 +1,18 @@
+
+Curso https://capgemini.udemy.com/course/n8n-total
+1.typeForm para envio de datos o 2.framer pego codigo html iframe generado previamente en basin form integrations, y publicamos desde basin
+1 y 2 puede sustituirse enviando desde Postman con POST
+pedimos a chatgpt que nos de el codigo del cuerpo del mensaje de correo desde gmail
+enriquecer datos accediendo a https://ipapi.co/147.161.191.11/json
+normalizar datos
+añadir una entrada en google hoja de calculo
+enviar correo a un chat de Telegram
+crear un registro en el CRM de HubSpot
+añadir entrada en google tasks
+preguntar a OpenAI (ChatGPT)
+al final del día un scheduler day, leyendo un google hoja de calculo y con codigo filtrar los registros de hoy
+
+contestar a un mensaje de watshap, respondiendo tras consultar en openAI
+
+control de errores
+preguntar a claude para que te de un flujo o proyecto completo en json. tambien podemos descargar en templates ejemplos publicados
